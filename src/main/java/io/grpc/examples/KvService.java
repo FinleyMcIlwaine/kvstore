@@ -79,11 +79,11 @@ final class KvService extends KvGson.KeyValueServiceImplBase {
   }
 
   private static void simulateWork(long millis) {
-    try {
-      TimeUnit.MILLISECONDS.sleep(millis);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new RuntimeException(e);
-    }
+    // try {
+    //   TimeUnit.MILLISECONDS.sleep(millis);
+    // } catch (InterruptedException e) {
+    //   Thread.currentThread().interrupt();
+    //   throw new RuntimeException(e);
+    // }
   }
 }
