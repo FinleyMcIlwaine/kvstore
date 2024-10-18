@@ -5,12 +5,10 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -53,11 +51,6 @@ public final class KvRunner {
       client.doClientWork(done);
       double qps = (double) client.getRpcCount() / DURATION_SECONDS;
       System.out.printf("Did %.3f RPCs/s\n", qps);
-      System.out.printf("Totals:\n");
-      System.out.printf("  %d CREATE\n",   client.rpcCountCreate);
-      System.out.printf("  %d UPDATE\n",   client.rpcCountUpdate);
-      System.out.printf("  %d RETRIEVE\n", client.rpcCountRetrieve);
-      System.out.printf("  %d DELETE\n",   client.rpcCountDelete);
     } finally {
       scheduler.shutdownNow();
       channel.shutdownNow();
