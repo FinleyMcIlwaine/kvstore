@@ -35,3 +35,5 @@ bin
 *~
 \#*\#
 
+# Nix
+flake.lock
