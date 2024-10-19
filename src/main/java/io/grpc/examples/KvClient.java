@@ -42,7 +42,7 @@ final class KvClient {
   private final Channel channel;
 
   private AtomicLong rpcCount = new AtomicLong();
-  private final Semaphore limiter = new Semaphore(100);
+  private final Semaphore limiter = new Semaphore(1);
 
   KvClient(Channel channel) {
     this.channel = channel;
